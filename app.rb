@@ -12,11 +12,6 @@ before do
 end
 
 
-before do
-  content_type :html
-end
-
-
 USERS = JSON.parse(File.read('/app/users.json'))
 
 get '/' do
