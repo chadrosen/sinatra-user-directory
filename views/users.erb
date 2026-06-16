@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>User Directory</title></head>
+<body>
+  <h1>User Directory</h1>
+  <p>Showing role: <%= @role.upcase %></p>
+  <form method="get" action="/users">
+    <input name="role" value="<%= @role %>" placeholder="Filter by role">
+    <button type="submit">Search</button>
+  </form>
+  <p id="count"><%= USERS.length %> users found</p>
+  <ul id="user-list">
+    <% @users.each do |user| %>
+      <li class="user" data-role="<%= user['role'] %>">
+        <%= user['name'] %> &mdash; <%= user['role'] %>
+      </li>
+    <% end %>
+  </ul>
+</body>
+</html>
