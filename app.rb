@@ -29,10 +29,6 @@ get '/users' do
   erb :users
 end
 
-after '/users' do
-  response.body = [response.body.join.gsub(/\d+ users found/, "#{USERS.length} users found")]
-end
-
 get '/users/:id' do
   @user = USERS.find { |u| u['id'] == params['id'] }
   halt 403, 'User not found' unless @user
